@@ -31,4 +31,35 @@ router.get('/', function(req, res, next) {
   res.send(result);
 });
 
+/*POST create user*/
+router.post('/', function(req, res, next) {
+  var result=null;
+  console.log(req.body);
+  if (req.body.newUser) {
+    var newUser=req.body.newUser;
+    console.log(req.body.newUser);
+    userDB[newUser.id]=newUser;
+  result=userDB[newUser.id];
+  }
+  else {
+    result='fail to add user';
+  }
+  res.send(result);
+});
+
+/*DELETE product*/
+router.delete('/', function(req, res, next) {
+  var result=null;
+  console.log(req.body);
+  if (req.body.userId && userDB[req.body.userId]) {
+    delete userDB[req.body.userId];
+  result={"status":"ok", "message": req.body.userId + " deleted"};
+  }
+  else {
+  result={"status":"fail", "message": req.body.userId + " does not exist"};
+  }
+  res.send(result);
+});
+
+
 module.exports = router;
