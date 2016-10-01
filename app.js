@@ -9,6 +9,8 @@ var bodyParser = require('body-parser');
 var users = require('./routes/users');
 var echo = require('./routes/echo');
 var index = require('./routes/index');
+var products = require('./routes/products');
+
 var app = express();
 
 // view engine setup
@@ -25,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use('/', routes);
 app.use('/users', users);
+app.use('/products', products);
 app.use('/echo', echo);
 app.use('/', index);
 
