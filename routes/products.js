@@ -27,13 +27,27 @@ router.get('/', function(req, res, next) {
   var result=null;
   if (req.query.pid) {
     console.log(req.query.pid);
-  result=productDB[req.query.pid] || 'no such product';
+  result=productDB[req.query.pid] || '{"status":"failed", "message": "no such product"}';
   }
   else {
     result=productDB;
   }
   res.send(result)
 });
+
+/* GET Single product. */
+router.get('/:pid', function(req, res, next) {
+  var result=null;
+  if (req.params.pid) {
+    console.log(req.params.pid);
+  result=productDB[req.params.pid] || '{"status":"failed", "message": "no such product"}';
+  }
+  else {
+    result=productDB;
+  }
+  res.send(result);
+});
+
 
 /*POST create product*/
 router.post('/', function(req, res, next) {
@@ -46,13 +60,13 @@ router.post('/', function(req, res, next) {
   result=productDB[newProduct.id];
   }
   else {
-  result={"status":"fail", "message": "failed to add product"};
+  result={"status":"failed", "message": "failed to add product"};
   }
   res.send(result);
 });
 
 /*DELETE product*/
-router.delete('/', function(req, res, next) {
+/*router.delete('/', function(req, res, next) {
   var result=null;
   console.log(req.body);
   if (req.body.productId && productDB[req.body.productId]) {
@@ -64,5 +78,20 @@ router.delete('/', function(req, res, next) {
   }
   res.send(result);
 });
+*/
+/*DELETE user by id*/
+router.delete('/:pid', function(req, res, next) {
+  var result=null;
+  console.log(req.params);
+  if (req.params.pid && productDB[req.params.pid]) {
+    delete productDB[req.params.pid];
+  result={"status":"ok", "message": req.params.pid + " deleted"};
+  }
+  else {
+  result={"status":"failed", "message": req.params.pid + " does not exist"};
+  }
+  res.send(result);
+});
+
 
 module.exports = router;
