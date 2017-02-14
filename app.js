@@ -10,8 +10,22 @@ var users = require('./routes/users');
 var echo = require('./routes/echo');
 var index = require('./routes/index');
 var products = require('./routes/products');
+//keycloak
+var Keycloak = require('keycloak-connect');
+var session = require('express-session');
 
 var app = express();
+
+//keycloak setup
+var memoryStore = new session.MemoryStore();
+var keycloak=new Keycloak({store: memoryStore});
+app.use(session({
+  secret: 'mySecret',
+  resave: false,
+  saveUninitialized: true,
+  store: memoryStore
+}));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,8 +40,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use('/', routes);
+//keycloak
+app.use( keycloak.middleware() );
 app.use('/users', users);
-app.use('/products', products);
+//app.use('/products', products);
+app.use('/products', keycloak.protect(),products);
 app.use('/echo', echo);
 app.use('/', index);
 
