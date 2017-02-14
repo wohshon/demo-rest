@@ -26,7 +26,13 @@ router.get('/', function(req, res, next) {
 	result=userDB[req.query.uid] || '{"status":"failed", "message": "no such user"}';
   }
   else {
-  	result=userDB;
+    console.log (Object.keys(userDB).length);
+    result=new Array();
+    for (var i=0; i <Object.keys(userDB).length;i ++) {
+       result[i]=userDB[Object.keys(userDB)[i]];
+    }
+      //original
+  	//result=userDB;
   }
   res.send(result);
 });
