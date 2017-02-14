@@ -1,0 +1,8 @@
+{
+  "realm": "demo",
+  "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0g9SEDzBSdh3dBbqV3GwH+/F0HfR8l45OP8uQKZTj2q3gnQ4u80Y8Mk1Gw5RN6cFO4GUxd0S5u2BSkcryLcUwnsuLBBOARAo4EE0AcnGlEjHlbA6F4fQRzSnUzF1iezT0mzq4sAN/7COPqZLmATtQ/uqusVLPQYMfCxJJRZOLRUZ6vK131YnpTecDoe4IVdGqxwsBGsP0FPPdWU+Qts+1kJO8YQch925Woa7r9Dd13IMlpsyrPtCOy+FkTsneLei3HqnYNycC1T/9/xFuNApDE2fiYofAtXBjktqc14vS+f68B0egmMnbVUs2zdQ4wFJPkFg8snMGONp/3QNVJyjSwIDAQAB",
+  "bearer-only": true,
+  "auth-server-url": "https://secure-sso-wohshon.44fs.preview.openshiftapps.com/auth",
+  "ssl-required": "external",
+  "resource": "demo-rest-service"
+}
