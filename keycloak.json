@@ -1,8 +1,8 @@
 {
   "realm": "demo",
-  "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnqlRx2Rkt8Ps3dc+2w/wRvF0SwqrdQPLyli3qR81phEwXsWIhFR4wKa8LCZGhAUTA20vgCyntEBYbvq7MxkVNXNi7Qmp6F20h8HjdH4Tg/DYmOcaLUru47VygmZ81Ldm6Qo7MvMK7+j00LtyUAqTGk6vceFNF/4MuKSGGAv4+BEQCBJDUL7dx9u2rihYHYV5C5fQ4n8J83qX70l9lASWbpLUL9BTZ+IYZTY7cTS/QfnuNEU/1yRwDpwVC9tYpJyhHMT9y6w1osR9FFw6gJXLk5HYFzVCv5cN7d8EDWVIIsrdyu77oe7fEuaHHFgJwn3TI+29pWx4uRl6kR96TlbxzQIDAQAB",
+  "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0g9SEDzBSdh3dBbqV3GwH+/F0HfR8l45OP8uQKZTj2q3gnQ4u80Y8Mk1Gw5RN6cFO4GUxd0S5u2BSkcryLcUwnsuLBBOARAo4EE0AcnGlEjHlbA6F4fQRzSnUzF1iezT0mzq4sAN/7COPqZLmATtQ/uqusVLPQYMfCxJJRZOLRUZ6vK131YnpTecDoe4IVdGqxwsBGsP0FPPdWU+Qts+1kJO8YQch925Woa7r9Dd13IMlpsyrPtCOy+FkTsneLei3HqnYNycC1T/9/xFuNApDE2fiYofAtXBjktqc14vS+f68B0egmMnbVUs2zdQ4wFJPkFg8snMGONp/3QNVJyjSwIDAQAB",
   "bearer-only": true,
-  "auth-server-url": "http://192.168.223.130:8080/auth",
+  "auth-server-url": "https://secure-sso-wohshon.44fs.preview.openshiftapps.com/auth",
   "ssl-required": "external",
   "resource": "demo-rest-service"
 }
