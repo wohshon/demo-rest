@@ -30,7 +30,13 @@ router.get('/', function(req, res, next) {
   result=productDB[req.query.pid] || '{"status":"failed", "message": "no such product"}';
   }
   else {
-    result=productDB;
+    console.log (Object.keys(productDB).length);
+    result=new Array();
+    for (var i=0; i <Object.keys(productDB).length;i ++) {
+       result[i]=productDB[Object.keys(productDB)[i]];
+    }
+    //original
+    //result=productDB;
   }
   res.send(result)
 });
