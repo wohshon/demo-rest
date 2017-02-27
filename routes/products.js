@@ -22,7 +22,7 @@ productDB['product3']=    {
       'price': 12.00,
        'currency': 'USD' 
     };        
-/* GET users listing. */
+/* GET products listing. */
 router.get('/', function(req, res, next) {
   var result=null;
   if (req.query.pid) {
@@ -85,7 +85,7 @@ router.post('/', function(req, res, next) {
   res.send(result);
 });
 */
-/*DELETE user by id*/
+/*DELETE product by id*/
 router.delete('/:pid', function(req, res, next) {
   var result=null;
   console.log(req.params);

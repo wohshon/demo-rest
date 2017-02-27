@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 //var routes = require('./routes/index');
 var users = require('./routes/users');
 var echo = require('./routes/echo');
+var flights = require('./routes/flights');
 var index = require('./routes/index');
 var products = require('./routes/products');
 
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/', routes);
 app.use('/users', users);
 app.use('/products', products);
+app.use('/flights', flights);
 app.use('/echo', echo);
 app.use('/', index);
 
