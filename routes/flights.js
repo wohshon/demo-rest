@@ -8,17 +8,30 @@ flightDB['SQ123']=    {
       'price': 59.90,
        'currency': 'SGD',
        'from': 'SIN',
-       'to': 'KUL' 
+       'to': 'KUL',
+       'seats': 200 
     };
 
     flightDB['SQ345']=    {
       'id': 'SQ345',
       'name': 'SQ345',
-      'price': 159.90,
+      'price': 859.90,
        'currency': 'SGD',
        'from': 'SIN',
-       'to': 'PEK' 
+       'to': 'SYD',
+       'seats': 350 
     };
+
+flightDB['SQ999']=    {
+      'id': 'SQ999',
+      'name': 'SQ999',
+      'price':359.90,
+       'currency': 'SGD',
+       'from': 'SIN',
+       'to': 'BKK',
+       'seats': 250
+};
+
 
     /* GET flights listing. */
 router.get('/', function(req, res, next) {
@@ -39,6 +52,7 @@ router.get('/', function(req, res, next) {
   res.send(result)
 });
 
+
 /* GET Single flight. */
 router.get('/:pid', function(req, res, next) {
   var result=null;
@@ -48,6 +62,26 @@ router.get('/:pid', function(req, res, next) {
   }
   else {
     result=flightDB;
+  }
+  res.send(result);
+});
+
+router.post('/buy', function(req, res, next) {
+  var result=null;
+  console.log(req.body);
+  if (req.body.order) {
+    var order=req.body.order;
+    console.log(req.body.order);
+    if (flightDB[order.flight]) {
+      var f= flightDB[order.flight]; 
+      result={"status":"purchase_success", "message": ""+order.qty+" tickets bought, cost: "+order.qty*f.price+" "+f.currency};      
+    } else {
+  result={"status":"failed", "message": "no flight found"};
+
+    }
+  }
+  else {
+  result={"status":"failed", "message": "failed to add flight"};
   }
   res.send(result);
 });
