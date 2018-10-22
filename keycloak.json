@@ -1,10 +1,8 @@
 {
   "realm": "demorealm",
+  "bearer-only": true,
   "auth-server-url": "http://sso.apps.0f59.example.opentlc.com/auth",
   "ssl-required": "none",
-  "resource": "bb966a40",
-  "credentials": {
-    "secret": "0858d978a23f599b0a99f04963261940"
-  },
+  "resource": "apidemo1",
   "confidential-port": 0
 }
