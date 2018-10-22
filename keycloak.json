@@ -2,9 +2,9 @@
   "realm": "demorealm",
   "auth-server-url": "http://sso.apps.0f59.example.opentlc.com/auth",
   "ssl-required": "none",
-  "resource": "apidemo",
+  "resource": "bb966a40",
   "credentials": {
-    "secret": "ce043664-e725-424c-a55c-1717f0c800a4"
+    "secret": "0858d978a23f599b0a99f04963261940"
   },
   "confidential-port": 0
 }
