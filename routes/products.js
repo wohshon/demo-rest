@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var jwt = require('jwt-simple');
 
 var productDB={};
 productDB['product1']=    {
@@ -28,11 +27,15 @@ router.get('/', function(req, res, next) {
   var result=null;
   console.log(req.headers);
   var tk=req.header('authorization').substring(7);
-  var decoded = jwt.decode(token,null);
+console.log('-'+tk+'-');   
+var jwt = require('jsonwebtoken');
+obj = jwt.decode(tk);
 
-  console.log(tk);
-  console.log(decoded);
-  
+ console.log(tk);
+  console.log(obj);
+ if (obj) { 
+	console.log('roles: '+obj.resource_access.bb966a40.roles);
+  }
   if (req.query.pid) {
     console.log(req.query.pid);
    result=productDB[req.query.pid] || '{"status":"failed", "message": "no such product"}';
