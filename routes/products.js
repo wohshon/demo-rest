@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var jwt = require('jwt-simple');
 
 var productDB={};
 productDB['product1']=    {
@@ -26,11 +27,15 @@ productDB['product3']=    {
 router.get('/', function(req, res, next) {
   var result=null;
   console.log(req.headers);
-  var tk=req.header('authorization').substring(6);
-console.log(tk);
+  var tk=req.header('authorization').substring(7);
+  var decoded = jwt.decode(token,null);
+
+  console.log(tk);
+  console.log(decoded);
+  
   if (req.query.pid) {
     console.log(req.query.pid);
-  result=productDB[req.query.pid] || '{"status":"failed", "message": "no such product"}';
+   result=productDB[req.query.pid] || '{"status":"failed", "message": "no such product"}';
   }
   else {
     console.log (Object.keys(productDB).length);
