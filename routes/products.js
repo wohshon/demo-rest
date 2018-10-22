@@ -25,6 +25,7 @@ productDB['product3']=    {
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   var result=null;
+  console.log(req.headers);
   if (req.query.pid) {
     console.log(req.query.pid);
   result=productDB[req.query.pid] || '{"status":"failed", "message": "no such product"}';
