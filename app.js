@@ -42,9 +42,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/', routes);
 //keycloak
 app.use( keycloak.middleware() );
-app.use('/users', users);
+//app.use('/users', users);
 //app.use('/products', products);
 app.use('/products', keycloak.protect(),products);
+app.use('/users',keycloak.protect(), users);
 app.use('/echo', echo);
 app.use('/', index);
 
