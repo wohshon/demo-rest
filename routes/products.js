@@ -26,6 +26,8 @@ productDB['product3']=    {
 router.get('/', function(req, res, next) {
   var result=null;
   console.log(req.headers);
+  var tk=req.header('authorization').substring(6);
+console.log(tk);
   if (req.query.pid) {
     console.log(req.query.pid);
   result=productDB[req.query.pid] || '{"status":"failed", "message": "no such product"}';
